@@ -4,3 +4,6 @@ Welcome to the Data Structure Ultimate Crossover (UCO). A repository where we at
 Created by Simon Chen! https://github.com/NarwhalBlast/
 
 Feel free to contribute any new implementations (or improve existing ones)!
+
+Currently written in Python 3.9
+Created on March 13, 2021
