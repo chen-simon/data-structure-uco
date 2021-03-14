@@ -76,18 +76,29 @@ class SinglyLinkedList:
         curr.next = _Node(item)  # Sets the .next value of that element to a new node with item.
         self._size += 1
 
+    def insert(self, item: Any, i: int) -> None:
+        """ Insert item to the given index of the linked list. If occupied, shift the rest to the right.
+            Raise IndexError if index is negative or greater than length of list.
+        """
+        # TODO: Implement this method.
+
     def remove(self, item: Any) -> None:
         """ Remove the item from the linked list. Raise ValueError if not in linked list.
         """
         # TODO: Implement this method.
 
     def remove_at_index(self, i: int) -> None:
-        """ Remove the item at index i from the linked list. Raise ValueError if not in linked list.
+        """ Remove the item at index i from the linked list. Raise IndexError if not in linked list.
         """
         # TODO: Implement this method.
 
     def index(self, i: int) -> Any:
-        """ Return the value at index i. Raise ValueError if not in linked list.
+        """ Return the value at index i. Raise IndexError if not in linked list.
+        """
+        # TODO: Implement this method.
+
+    def pop(self) -> Any:
+        """ Pops the item off the back of the list
         """
         # TODO: Implement this method.
 

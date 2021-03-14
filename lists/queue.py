@@ -2,15 +2,14 @@ from __future__ import annotations
 from typing import Any
 from singly_linked_list import SinglyLinkedList
 
-
-class Stack:
-    """ A stack.
+class Queue:
+    """ A queue.
     """
-    _values: SinglyLinkedList[Any]  # The front of _values is the top of the stack
+    _values: SinglyLinkedList[Any]  # The start of _values is the front of the queue
     _size: int  # To remove reliance on len(_values)
 
     def __init__(self):
-        self._values = SinglyLinkedList()
+        self._values = []
         self._size = 0
 
     def is_empty(self) -> bool:
@@ -18,17 +17,17 @@ class Stack:
         """
         return self._size == 0
 
-    def push(self, item: Any) -> None:
+    def enqueue(self, item: Any) -> None:
         """ Push item to stack.
         """
-        self._values.insert(item, 0)
+        self._values.insert(0, item)
         self._size += 1
 
-    def pop(self) -> Any:
-        """ Pop item off stack. Raise ValueError if stack is empty.
+    def dequeue(self) -> Any:
+        """ Pop item off stack. Raise ValueError if queue is empty.
         """
         if not self.is_empty():
             self._size -= 1
-            return self._values.remove_at_index(0)
+            return self._values.pop()
         else:
             raise ValueError
