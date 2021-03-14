@@ -35,6 +35,11 @@ class SinglyLinkedList:
                 curr = new_node
         return
 
+    def __len__(self) -> int:
+        """ Returns size of linked list.
+        """
+        return self._size
+
     def __str__(self) -> str:
         """ Return as if it were a regular Python built-in list.
         """
@@ -42,10 +47,47 @@ class SinglyLinkedList:
         curr = self._first
 
         while curr is not None:
-            string_so_far += str(curr.item)
+            string_so_far += curr.item.__str__()
             if curr.next is not None:
                 string_so_far += ', '
             curr = curr.next
 
         string_so_far += ']'
         return string_so_far
+
+    def __contains__(self, item: Any) -> bool:
+        """ Return whether item is in the linked list.
+        """
+        curr = self._first
+
+        while curr is not None:
+            if curr.item == item:  # Early return pattern.
+                return True
+            curr = curr.next
+        return False
+
+    def append(self, item: Any) -> None:
+        """ Append item to back of the linked list.
+        """
+        curr = self._first
+
+        while curr.next is not None:  # Iterates until last element
+            curr = curr.next
+        curr.next = _Node(item)  # Sets the .next value of that element to a new node with item.
+        self._size += 1
+
+    def remove(self, item: Any) -> None:
+        """ Remove the item from the linked list. Raise ValueError if not in linked list.
+        """
+        # TODO: Implement this method.
+
+    def remove_at_index(self, i: int) -> None:
+        """ Remove the item at index i from the linked list. Raise ValueError if not in linked list.
+        """
+        # TODO: Implement this method.
+
+    def index(self, i: int) -> Any:
+        """ Return the value at index i. Raise ValueError if not in linked list.
+        """
+        # TODO: Implement this method.
+
