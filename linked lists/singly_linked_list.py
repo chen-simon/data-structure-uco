@@ -1,6 +1,7 @@
 from __future__ import annotations
 from typing import Any, Optional
 
+
 class _Node:
     """ A node in a singly linked list.
     """
