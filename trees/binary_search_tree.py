@@ -1,5 +1,5 @@
 from __future__ import annotations
-from typing import Any, Optional
+from typing import Optional
 
 
 class BST:
@@ -9,7 +9,7 @@ class BST:
     left: Optional[BST]
     right: Optional[BST]
 
-    def __init__(self, value: Any) -> None:
+    def __init__(self, value: int) -> None:
         self.value = value
         self.left = None
         self.right = None
