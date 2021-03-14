@@ -26,7 +26,7 @@ class BST:
         string_so_far += ']'
         return string_so_far
 
-    def __contains__(self, item) -> bool:
+    def __contains__(self, item: int) -> bool:
         """ Return whether item is in the BST
         """
         if item == self.value:  # Base case
