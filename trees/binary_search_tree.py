@@ -19,10 +19,10 @@ class BST:
         """
         string_so_far = '['
         if self.left is not None:  # Recurse left
-            string_so_far += self.left.__str__().strip('[').strip(']') + ', '
+            string_so_far += self.left.__str__()[1:-1] + ', '
         string_so_far += str(self.value)
         if self.right is not None:  # Recurse right
-            string_so_far += ', ' + self.right.__str__().strip('[').strip(']')
+            string_so_far += ', ' + self.right.__str__()[1:-1]
         string_so_far += ']'
         return string_so_far
 
