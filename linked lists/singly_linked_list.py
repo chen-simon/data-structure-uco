@@ -36,6 +36,8 @@ class SinglyLinkedList:
         return
 
     def __str__(self) -> str:
+        """ Return as if it were a regular Python built-in list.
+        """
         string_so_far = '['
         curr = self._first
 
