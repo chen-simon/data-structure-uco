@@ -33,7 +33,6 @@ class SinglyLinkedList:
                 curr.next = new_node
                 self._size += 1
                 curr = new_node
-        return
 
     def __len__(self) -> int:
         """ Returns size of linked list.
@@ -80,7 +79,23 @@ class SinglyLinkedList:
         """ Insert item to the given index of the linked list. If occupied, shift the rest to the right.
             Raise IndexError if index is negative or greater than length of list.
         """
-        # TODO: Implement this method.
+        new_node = _Node(item)
+
+        if i == 0:  # Insertion at start
+            new_node.next, self._first = self._first, new_node
+            self._size += 1
+        else:
+            prev, curr, curr_index = self._first, self._first.next, 0
+
+            while curr is not None and curr_index + 1 < i:  # Iterates until ith element
+                prev, curr = curr, curr.next
+                curr_index += 1
+
+            if len(self) + 1 > i:  # insert if possible
+                new_node.next, prev.next = curr, new_node
+                self._size += 1
+            else:
+                raise IndexError
 
     def remove(self, item: Any) -> None:
         """ Remove the item from the linked list. Raise ValueError if not in linked list.
