@@ -85,9 +85,9 @@ class SinglyLinkedList:
             new_node.next, self._first = self._first, new_node
             self._size += 1
         else:
-            prev, curr, curr_index = self._first, self._first.next, 0
+            prev, curr, curr_index = self._first, self._first.next, 1
 
-            while curr is not None and curr_index + 1 < i:  # Iterates until ith element
+            while curr is not None and curr_index < i:  # Iterates until ith element
                 prev, curr = curr, curr.next
                 curr_index += 1
 
