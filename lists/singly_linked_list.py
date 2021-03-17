@@ -75,9 +75,14 @@ class SinglyLinkedList:
         """
         curr = self._first
 
-        while curr.next is not None:  # Iterates until last element
-            curr = curr.next
-        curr.next = _Node(item)  # Sets the .next value of that element to a new node with item.
+        if curr is None:
+            self._first = _Node(item)
+
+        else:
+            while curr.next is not None:  # Iterates until last element
+                curr = curr.next
+            curr.next = _Node(item)  # Sets the .next value of that element to a new node with item.
+
         self._size += 1
 
     def insert(self, item: Any, i: int) -> None:
@@ -182,4 +187,4 @@ class SinglyLinkedList:
             item = curr.item
             prev.next = curr.next   # Essentially making prev.next = None
 
-        return item # test
+        return item

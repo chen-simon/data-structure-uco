@@ -1,3 +1,9 @@
+"""
+An implementation of a PriorityQueue.
+
+Credits: Simon Chen, and Salman Husainie
+"""
+
 from __future__ import annotations
 from typing import Any, Tuple, Optional
 from singly_linked_list import SinglyLinkedList
