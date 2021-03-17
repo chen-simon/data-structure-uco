@@ -4,7 +4,7 @@ An implementation of a SinglyLinkedList.
 Contributors: Simon Chen, and Salman Husainie
 """
 from __future__ import annotations
-from typing import Any, Optional
+from typing import Any, Optional, Iterable, Iterator
 
 
 class _Node:
@@ -18,7 +18,7 @@ class _Node:
         self.next = next
 
 
-class SinglyLinkedList:
+class SinglyLinkedList(Iterable):
     """ A singly linked list.
     """
     _first: Optional[_Node]
@@ -58,6 +58,9 @@ class SinglyLinkedList:
 
         string_so_far += ']'
         return string_so_far
+
+    def __iter__(self) -> SinglyLinkedListIterator:
+        return SinglyLinkedListIterator(self)
 
     def __contains__(self, item: Any) -> bool:
         """ Return whether item is in the linked list.
@@ -188,3 +191,25 @@ class SinglyLinkedList:
             prev.next = curr.next   # Essentially making prev.next = None
 
         return item
+
+
+class SinglyLinkedListIterator(Iterator):
+    """ Iterator Class for SinglyLinkedList
+    """
+    lst: SinglyLinkedList
+    curr: _Node
+
+    def __init__(self, lst: SinglyLinkedList) -> None:
+        self.lst = lst
+        self.curr = self.lst._first
+
+    def __iter__(self):
+        return self
+
+    def __next__(self):
+        while self.curr is not None:  # Iterates until last element
+            item_to_return = self.curr.item
+            self.curr = self.curr.next
+            return item_to_return
+        raise StopIteration
+
