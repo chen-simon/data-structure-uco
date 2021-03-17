@@ -1,3 +1,8 @@
+"""
+An implementation of a SinglyLinkedList.
+
+Credits: Simon Chen, and Salman Husainie
+"""
 from __future__ import annotations
 from typing import Any, Optional
 
@@ -76,7 +81,8 @@ class SinglyLinkedList:
         self._size += 1
 
     def insert(self, item: Any, i: int) -> None:
-        """ Insert item to the given index of the linked list. If occupied, shift the rest to the right.
+        """ Insert item to the given index of the linked list.
+            If occupied, shift the rest to the right.
             Raise IndexError if index is negative or greater than length of list.
         """
         new_node = _Node(item)
@@ -100,20 +106,80 @@ class SinglyLinkedList:
     def remove(self, item: Any) -> None:
         """ Remove the item from the linked list. Raise ValueError if not in linked list.
         """
-        # TODO: Implement this method.
+        prev, curr = None, self._first
+
+        while not (curr is None or curr.item == item):
+            prev, curr = curr, curr.next
+
+        assert curr is None or curr.item == item
+
+        if curr is None:
+            # This means that item is not in the linked list.
+            raise ValueError
+
+        elif prev is None:
+            # The case where we remove the first node.
+            self._first = curr.next
+
+        else:
+            # The case where we remove a node later in the linked list.
+            prev.next = curr.next
 
     def remove_at_index(self, i: int) -> None:
         """ Remove the item at index i from the linked list. Raise IndexError if not in linked list.
         """
-        # TODO: Implement this method.
+        prev, curr, curr_index = None, self._first, 0
+
+        while not (curr is None or curr_index == i):
+            prev, curr, curr_index = curr, curr.next, curr_index + 1
+
+        assert curr is None or curr_index == i
+
+        if curr is None:
+            # The case where i is out of bounds.
+            raise IndexError
+
+        elif prev is None:
+            # The case where the node at index i is self._first
+            self._first = curr.next
+
+        else:
+            # The case where the node at index i is later in the linked list.
+            prev.next = curr.next
 
     def index(self, i: int) -> Any:
         """ Return the value at index i. Raise IndexError if not in linked list.
         """
-        # TODO: Implement this method.
+        curr, curr_index = self._first, 0
+
+        while not (curr is None or curr_index == i):
+            curr, curr_index = curr.next, curr_index + 1
+
+        assert curr is None or curr_index == i
+
+        if curr is None:
+            # The case where i is out of bounds.
+            raise IndexError
+
+        else:
+            # The case where there is a node at index i.
+            return curr.item
 
     def pop(self) -> Any:
-        """ Pops the item off the back of the list
+        """ Pops the item off the back of the linked list.
         """
-        # TODO: Implement this method.
+        prev, curr = None, self._first
 
+        while curr.next is not None:
+            prev, curr = curr, curr.next
+
+        if prev is None:
+            # curr is the first and only item in the linked list.
+            item, self._first = curr.item, None
+
+        else:
+            # curr is the last node in the linked list
+            item = curr.item
+            prev.next = curr.next   # Essentially making prev.next = None
+
+        return item
