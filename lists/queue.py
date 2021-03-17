@@ -11,7 +11,7 @@ from singly_linked_list import SinglyLinkedList
 class Queue:
     """ A queue.
     """
-    _values: SinglyLinkedList  # The start of _values is the front of the queue
+    _values: SinglyLinkedList[Any]  # The start of _values is the front of the queue
     _size: int  # To remove reliance on len(_values)
 
     def __init__(self):

@@ -4,7 +4,7 @@ An implementation of a HashTable.
 Contributors: Simon Chen, and Salman Husainie.
 """
 from __future__ import annotations
-from typing import Any
+from typing import Any, Tuple
 from lists.singly_linked_list import SinglyLinkedList
 
 
@@ -12,7 +12,8 @@ class HashTable:
     """ A Hash Table that is implemented using linked-list chaining.
         Assume all keys are Strings.
     """
-    _buckets: list[SinglyLinkedList]  # This implementation will used linked-list chaining.
+    # This implementation will used linked-list chaining.
+    _buckets: list[SinglyLinkedList[Tuple[str, Any]]]
     _size: int  # Size of Hash Table.
 
     def __init__(self, buckets: int) -> None:
