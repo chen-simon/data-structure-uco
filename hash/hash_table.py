@@ -30,6 +30,15 @@ class HashTable:
             string_so_far += bucket.__str__() + ', '
         return string_so_far[:-2] + ']'
 
+    def __getitem__(self, key: str) -> Any:
+        """ Returns the item the key is mapped to. Raise ValueError if not in table.
+        """
+        hash_code = self._get_hash_code(key)
+        for item in self._buckets[hash_code]:
+            if item[0] == key:
+                return item[1]
+        raise ValueError('Item is not in Hash Table')
+
     def __len__(self) -> int:
         """ Return the size of the hash table.
         """
