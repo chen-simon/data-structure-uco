@@ -39,7 +39,10 @@ class HashTable:
         """ Return whether item is in the hash table.
         """
         hash_code = self._get_hash_code(key)
-        return key in self._buckets[hash_code]
+        for item in self._buckets[hash_code]:
+            if item[0] == key:
+                return True
+        return False
 
     def _get_hash_code(self, key: str) -> int:
         """ Returns a hash code of the string.
