@@ -1,7 +1,7 @@
 """
 An implementation of a PriorityQueue.
 
-Credits: Simon Chen, and Salman Husainie
+Contributors: Simon Chen, and Salman Husainie.
 """
 
 from __future__ import annotations

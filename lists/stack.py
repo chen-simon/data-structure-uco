@@ -1,3 +1,8 @@
+"""
+An implementation of a Stack.
+
+Contributors: Simon Chen, and Salman Husainie.
+"""
 from __future__ import annotations
 from typing import Any
 from singly_linked_list import SinglyLinkedList

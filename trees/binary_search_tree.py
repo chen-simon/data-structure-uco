@@ -1,3 +1,8 @@
+"""
+An implementation of a BinarySearchTree (BST).
+
+Contributors: Simon Chen, and Salman Husainie.
+"""
 from __future__ import annotations
 from typing import Optional
 
@@ -51,4 +56,3 @@ class BST:
                 self.right.add(value)
             else:
                 self.right = BST(value)
-
