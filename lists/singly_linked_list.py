@@ -182,4 +182,4 @@ class SinglyLinkedList:
             item = curr.item
             prev.next = curr.next   # Essentially making prev.next = None
 
-        return item
+        return item # test
