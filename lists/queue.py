@@ -24,13 +24,13 @@ class Queue:
         return self._size == 0
 
     def enqueue(self, item: Any) -> None:
-        """ Push item to stack.
+        """ Enqueue item.
         """
         self._values.insert(0, item)
         self._size += 1
 
     def dequeue(self) -> Any:
-        """ Pop item off stack. Raise ValueError if queue is empty.
+        """ Dequeue next item in queue. Raise ValueError if queue is empty.
         """
         if not self.is_empty():
             self._size -= 1
