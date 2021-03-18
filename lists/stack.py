@@ -11,7 +11,7 @@ from singly_linked_list import SinglyLinkedList
 class Stack:
     """ A stack.
     """
-    _values: SinglyLinkedList  # The front of _values is the top of the stack
+    _values: SinglyLinkedList[Any]  # The front of _values is the top of the stack
     _size: int  # To remove reliance on len(_values)
 
     def __init__(self):

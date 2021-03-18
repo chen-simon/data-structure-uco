@@ -11,7 +11,7 @@ from singly_linked_list import SinglyLinkedList
 class Queue:
     """ A queue.
     """
-    _values: SinglyLinkedList  # The start of _values is the front of the queue
+    _values: SinglyLinkedList[Any]  # The start of _values is the front of the queue
     _size: int  # To remove reliance on len(_values)
 
     def __init__(self):
@@ -24,13 +24,13 @@ class Queue:
         return self._size == 0
 
     def enqueue(self, item: Any) -> None:
-        """ Push item to stack.
+        """ Enqueue item.
         """
         self._values.insert(0, item)
         self._size += 1
 
     def dequeue(self) -> Any:
-        """ Pop item off stack. Raise ValueError if queue is empty.
+        """ Dequeue next item in queue. Raise ValueError if queue is empty.
         """
         if not self.is_empty():
             self._size -= 1
