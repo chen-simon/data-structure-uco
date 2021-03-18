@@ -16,7 +16,7 @@ class PriorityQueue:
     _size: int  # To remove reliance on len(_values)
 
     def __init__(self):
-        self._values = []
+        self._values = SinglyLinkedList()
         self._size = 0
 
     def is_empty(self) -> bool:
@@ -28,7 +28,7 @@ class PriorityQueue:
         """ Push item to stack.
         """
         list_item = (item, priority)
-        self._values.insert(0, list_item)
+        # TODO: Implement this method so that it inserts it sorted.
         self._size += 1
 
     def dequeue(self) -> Any:
