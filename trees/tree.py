@@ -65,7 +65,6 @@ class Tree:
             return string_so_far
 
 
-
 if __name__ == '__main__':
     import doctest
     doctest.testmod()
