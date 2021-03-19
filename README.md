@@ -7,6 +7,7 @@ Data Structures are as per this Wikipedia List: https://en.wikipedia.org/wiki/Li
 
 Feel free to contribute any new implementations (or improve existing ones)!
 
-Currently written in Python 3.9
+Data structure count: 9
 
+Currently written in Python 3.9
 Originally created on March 13, 2021
