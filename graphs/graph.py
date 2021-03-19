@@ -23,3 +23,6 @@ class Graph:
     def __init__(self):
         self._nodes = set()
         self._size = 0
+        
+    def __len__(self) -> int:
+        return self._size
