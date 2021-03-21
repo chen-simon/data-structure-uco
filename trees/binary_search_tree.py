@@ -13,12 +13,17 @@ class BST:
     value: int
     left: Optional[BST]
     right: Optional[BST]
+    size: int
 
     def __init__(self, value: int) -> None:
         self.value = value
         self.left = None
         self.right = None
+        self.size = 1
 
+    def __len__(self) -> int:
+        return self.size
+    
     def __str__(self) -> str:
         """ Return as if it were a regular Python built-in list.
         """
@@ -56,3 +61,4 @@ class BST:
                 self.right.add(value)
             else:
                 self.right = BST(value)
+        self.size += 1
