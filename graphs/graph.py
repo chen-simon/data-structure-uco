@@ -15,7 +15,7 @@ class _Vertex:
 
 
 class Graph:
-    """ A graph.
+    """ A graph. All objects in the graph are unique.
     """
     _vertices: set[_Vertex]
     _size: int
@@ -26,3 +26,14 @@ class Graph:
         
     def __len__(self) -> int:
         return self._size
+
+    def __contains__(self, item: Any) -> bool:
+        """ Return wheter item is in the graph
+        """
+        for vertex in self._vertices:
+            if vertex == item:
+                return True
+        return False
+
+    def add(self, item: Any) -> None:
+        self._vertices.add(item)
