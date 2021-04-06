@@ -28,7 +28,7 @@ class Graph:
         return self._size
 
     def __contains__(self, item: Any) -> bool:
-        """ Return wheter item is in the graph
+        """ Return whether item is in the graph.
         """
         for vertex in self._vertices:
             if vertex == item:
@@ -37,3 +37,23 @@ class Graph:
 
     def add(self, item: Any) -> None:
         self._vertices.add(item)
+        self._size += 1
+
+    def add_edge(self, item1: Any, item2: Any) -> None:
+        """ Add an edge between two items in the graph. Raise ValueError if either one not in graph.
+        item1 and item2 must be unique items.
+        """
+        vertex1, vertex2 = None, None
+        for vertex in self._vertices:
+            if vertex.value == item1:
+                vertex1 = vertex
+            elif vertex.value == item2:
+                vertex2 = vertex
+            if vertex1 and vertex2:  # Break from loop when both items are found
+                break
+
+        if vertex1 and vertex2:
+            vertex1.neighbours.add(vertex2)
+            vertex2.neighbours.add(vertex1)
+        else:
+            raise ValueError
