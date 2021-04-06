@@ -23,7 +23,7 @@ class BST:
 
     def __len__(self) -> int:
         return self.size
-    
+
     def __str__(self) -> str:
         """ Return as if it were a regular Python built-in list.
         """

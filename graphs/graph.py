@@ -7,21 +7,21 @@ from __future__ import annotations
 from typing import Any
 
 
-class _Node:
-    """ A node in a graph.
+class _Vertex:
+    """ A vertex in a graph.
     """
-    neighbours: set[_Node]
+    neighbours: set[_Vertex]
     value: Any
 
 
 class Graph:
     """ A graph.
     """
-    _nodes: set[_Node]
+    _vertices: set[_Vertex]
     _size: int
 
     def __init__(self):
-        self._nodes = set()
+        self._vertices = set()
         self._size = 0
         
     def __len__(self) -> int:
