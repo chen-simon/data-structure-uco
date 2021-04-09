@@ -25,6 +25,8 @@ class Graph:
         self._size = 0
         
     def __len__(self) -> int:
+        """ Return the number of vertices in the Graph
+        """
         return self._size
 
     def __contains__(self, item: Any) -> bool:
@@ -34,6 +36,14 @@ class Graph:
             if vertex == item:
                 return True
         return False
+
+    def __getitem__(self, item: Any) -> _Vertex:
+        """ Return whether item is in the graph. Raise value error if item not in Graph.
+        """
+        for vertex in self._vertices:
+            if vertex == item:
+                return vertex
+        raise ValueError
 
     def add(self, item: Any) -> None:
         self._vertices.add(item)
